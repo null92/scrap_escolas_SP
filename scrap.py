@@ -6,7 +6,7 @@ myFile = open('escolas.csv', 'r+')
 pagina = 1
 
 while(pagina <= 3113):
-    url = 'http://pesquisaseduc.fde.sp.gov.br/localize_escola?pageNumber="{paginas}"&inicial=False'.format(paginas = pagina)
+    url = 'http://pesquisaseduc.fde.sp.gov.br/localize_escola?pageNumber={paginas}&inicial=False'.format(paginas = pagina)
     r = requests.get(url)
     soup = BeautifulSoup(r.content, 'html.parser')
     lines = soup.find_all('article', {'style': 'margin-top: 10px;'})
